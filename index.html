@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="js">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dr. Wagner Novaes Jr. — Psiquiatria & Nutrologia Integrativa</title>
+<meta name="description" content="Saúde mental e metabólica em um só plano. Protocolos práticos + acompanhamento médico. Comece pelo Protocolo de Jejum Intermitente." />
+
+<!-- ============================================================
+     LINKS EDITÁVEIS  —  troque aqui se mudar algo
+     • Checkout do jejum (Greenn) .....  data-link="jejum-checkout"
+         → https://payfast.greenn.com.br/w5avfd4
+     • Entrar no app (alunos) .........  data-link="jejum-app"
+         → https://jejum-app-pwa.vercel.app
+     • WhatsApp  ......................  (24) 99989-3059
+     • Instagram  .....................  @dr.wagnernovaesjr
+     Pra ATIVAR um novo protocolo no futuro: procure o bloco
+     "TEMPLATE PROTOCOLO" lá embaixo (está comentado) e descomente.
+     ============================================================ -->
+
+<!-- Open Graph (preview ao compartilhar o link) -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dr. Wagner Novaes Jr. — Psiquiatria & Nutrologia Integrativa" />
+<meta property="og:description" content="Saúde mental e metabólica em um só plano. Conheça os protocolos." />
+<meta property="og:image" content="https://drwagnernovaesjr.manus.space/images/dr-wagner-portrait-main.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --bg:#0E1512;
+    --bg-2:#0A0F0D;
+    --surface:rgba(255,255,255,.038);
+    --surface-2:rgba(255,255,255,.055);
+    --border:rgba(255,255,255,.09);
+    --border-strong:rgba(255,255,255,.16);
+    --emerald:#1FB57A;
+    --emerald-bright:#33D69B;
+    --emerald-deep:#0F7E55;
+    --gold:#C9A24B;
+    --gold-bright:#E3C078;
+    --text:#ECF3EF;
+    --muted:#9DAEA6;
+    --muted-2:#6E7E78;
+    --radius:22px;
+    --radius-sm:15px;
+    --maxw:620px;
+    --shadow:0 24px 60px -28px rgba(0,0,0,.85);
+    --ring-emerald:0 0 0 1px rgba(31,181,122,.35), 0 18px 50px -20px rgba(31,181,122,.35);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* fundo ambiente */
+  body::before{
+    content:"";position:fixed;inset:0;z-index:-1;
+    background:
+      radial-gradient(900px 600px at 18% -8%, rgba(31,181,122,.16), transparent 60%),
+      radial-gradient(700px 520px at 100% 8%, rgba(201,162,75,.10), transparent 55%),
+      radial-gradient(800px 700px at 50% 120%, rgba(31,181,122,.08), transparent 60%),
+      linear-gradient(180deg,#0E1512 0%, #0A0F0D 100%);
+  }
+
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  .shell{max-width:var(--maxw);margin:0 auto;padding:18px 20px 60px}
+
+  /* ---------- TOPO ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    padding:8px 4px 20px;
+  }
+  .brand{display:flex;align-items:center;gap:11px;min-width:0}
+  .brand-badge{
+    width:42px;height:42px;border-radius:50%;flex:0 0 auto;
+    object-fit:cover;object-position:center 18%;
+    border:1.5px solid var(--gold);
+    box-shadow:0 0 0 3px rgba(201,162,75,.12);
+  }
+  .brand-text{min-width:0}
+  .brand-name{font-family:'Sora';font-weight:700;font-size:.95rem;letter-spacing:.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .brand-crm{font-size:.7rem;color:var(--muted-2);letter-spacing:.6px;text-transform:uppercase}
+  .ig-chip{
+    display:inline-flex;align-items:center;gap:7px;flex:0 0 auto;
+    padding:8px 13px;border-radius:999px;
+    background:var(--surface);border:1px solid var(--border);
+    font-size:.8rem;font-weight:600;color:var(--text);
+    transition:.25s;
+  }
+  .ig-chip:hover{background:var(--surface-2);border-color:var(--border-strong);transform:translateY(-1px)}
+  .ig-chip svg{width:16px;height:16px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;border-radius:var(--radius);overflow:hidden;
+    aspect-ratio:1/1.12;
+    box-shadow:var(--shadow);
+    border:1px solid var(--border);
+    background:#0c1310;
+  }
+  .hero img{
+    width:100%;height:100%;object-fit:cover;object-position:center 16%;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(7,11,9,.05) 0%, rgba(7,11,9,0) 38%, rgba(7,11,9,.55) 72%, rgba(7,11,9,.94) 100%);
+  }
+  .hero-top{position:absolute;top:14px;left:14px;right:14px;display:flex;justify-content:flex-end;z-index:2}
+  .pill-verified{
+    display:inline-flex;align-items:center;gap:6px;
+    padding:7px 12px;border-radius:999px;
+    background:rgba(10,15,13,.55);backdrop-filter:blur(8px);
+    border:1px solid rgba(201,162,75,.45);
+    color:var(--gold-bright);font-size:.72rem;font-weight:600;letter-spacing:.3px;
+  }
+  .pill-verified svg{width:13px;height:13px}
+  .hero-body{position:absolute;left:0;right:0;bottom:0;padding:22px 22px 24px;z-index:2}
+  .eyebrow{
+    display:inline-block;font-family:'Sora';font-weight:600;
+    font-size:.7rem;letter-spacing:1.8px;text-transform:uppercase;
+    color:var(--gold-bright);
+    padding-bottom:9px;
+  }
+  .hero h1{
+    font-family:'Sora';font-weight:800;
+    font-size:clamp(1.85rem,7.5vw,2.5rem);
+    line-height:1.04;letter-spacing:-.5px;
+  }
+  .hero .tagline{
+    margin-top:11px;font-size:clamp(.98rem,3.6vw,1.12rem);color:#cfdcd6;
+    max-width:30ch;
+  }
+  .hero .tagline b{color:var(--emerald-bright);font-weight:600}
+
+  /* ---------- INTRO + AÇÕES RÁPIDAS ---------- */
+  .intro{margin-top:22px;color:var(--muted);font-size:1rem}
+  .intro b{color:var(--text);font-weight:600}
+  .quickrow{display:flex;gap:11px;margin-top:18px}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-family:'Sora';font-weight:600;font-size:.95rem;
+    padding:14px 18px;border-radius:14px;cursor:pointer;
+    transition:transform .2s, box-shadow .2s, background .2s, border-color .2s;
+    border:1px solid transparent;white-space:nowrap;
+  }
+  .btn svg{width:18px;height:18px;flex:0 0 auto}
+  .btn-primary{
+    flex:1;background:linear-gradient(135deg,var(--emerald) 0%, var(--emerald-deep) 100%);
+    color:#04140d;box-shadow:0 14px 34px -16px rgba(31,181,122,.7);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 20px 42px -16px rgba(31,181,122,.85)}
+  .btn-ghost{
+    flex:0 0 auto;background:var(--surface);border-color:var(--border);color:var(--text);
+  }
+  .btn-ghost:hover{background:var(--surface-2);border-color:var(--border-strong);transform:translateY(-2px)}
+  .btn-text{display:block;width:100%;text-align:center;margin-top:13px;color:var(--muted);font-size:.85rem;font-weight:500;transition:color .2s;position:relative}
+  .btn-text:hover{color:var(--emerald-bright)}
+
+  /* ---------- SEÇÕES ---------- */
+  .section{margin-top:46px}
+  .section-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+  .section-kicker{
+    font-family:'Sora';font-weight:700;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;
+    color:var(--gold-bright);
+  }
+  .section-line{height:1px;flex:1;background:linear-gradient(90deg,var(--border-strong),transparent)}
+  .section h2{
+    font-family:'Sora';font-weight:700;font-size:clamp(1.35rem,5vw,1.7rem);
+    line-height:1.12;letter-spacing:-.4px;margin-bottom:8px;
+  }
+  .section .sub{color:var(--muted);font-size:.96rem;max-width:46ch}
+
+  /* ---------- PROTOCOLO EM DESTAQUE ---------- */
+  .protocols{display:flex;flex-direction:column;gap:16px}
+  .protocol{
+    position:relative;border-radius:var(--radius);padding:1.4px;
+    background:linear-gradient(150deg, rgba(201,162,75,.85), rgba(201,162,75,.12) 40%, rgba(31,181,122,.35) 100%);
+    box-shadow:0 26px 60px -30px rgba(201,162,75,.4);
+  }
+  .protocol-inner{
+    background:linear-gradient(165deg,#13201a 0%, #0d1512 100%);
+    border-radius:calc(var(--radius) - 2px);
+    padding:22px 21px 23px;position:relative;overflow:hidden;
+  }
+  .protocol-inner::before{
+    content:"";position:absolute;width:220px;height:220px;right:-60px;top:-80px;
+    background:radial-gradient(circle, rgba(31,181,122,.22), transparent 70%);
+  }
+  .protocol-flag{
+    display:inline-flex;align-items:center;gap:7px;position:relative;
+    font-family:'Sora';font-weight:700;font-size:.68rem;letter-spacing:1.4px;text-transform:uppercase;
+    color:var(--gold-bright);margin-bottom:13px;
+  }
+  .dot{width:7px;height:7px;border-radius:50%;background:var(--emerald-bright);box-shadow:0 0 0 4px rgba(51,214,155,.18);animation:pulse 2.2s infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+  .protocol h3{font-family:'Sora';font-weight:800;font-size:1.5rem;letter-spacing:-.4px;position:relative}
+  .protocol p{color:var(--muted);font-size:.95rem;margin-top:9px;position:relative}
+  .protocol p b{color:var(--text);font-weight:600}
+  .tags{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0 14px;position:relative}
+  .tag{
+    font-size:.76rem;font-weight:500;color:#cfe6da;
+    background:rgba(31,181,122,.12);border:1px solid rgba(31,181,122,.28);
+    padding:6px 11px;border-radius:999px;
+  }
+  .price{position:relative;display:flex;align-items:baseline;gap:9px;margin:0 0 17px}
+  .price-now{font-family:'Sora';font-weight:800;font-size:1.32rem;color:#fff;letter-spacing:-.3px}
+  .price-cash{font-size:.82rem;color:var(--muted)}
+  .protocol .btn-primary{width:100%;position:relative;font-size:1rem;padding:15px}
+
+  /* card "em breve" (oculto por padrão — é só template) */
+  .protocol.soon{background:var(--border);box-shadow:none;opacity:.85}
+  .protocol.soon .protocol-inner{background:var(--surface)}
+  .protocol.soon .protocol-flag{color:var(--muted)}
+  .protocol.soon h3{font-weight:700;font-size:1.25rem;color:#cdd8d3}
+  .badge-soon{
+    position:absolute;top:18px;right:18px;
+    font-family:'Sora';font-size:.66rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;
+    color:var(--muted);background:rgba(255,255,255,.06);border:1px solid var(--border);
+    padding:5px 10px;border-radius:999px;
+  }
+
+  /* ---------- MÉTODO / PILARES ---------- */
+  .pillars{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:470px){.pillars{grid-template-columns:1fr 1fr}}
+  .pillar{
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);
+    padding:18px 17px;transition:.25s;
+  }
+  .pillar:hover{background:var(--surface-2);border-color:var(--border-strong);transform:translateY(-2px)}
+  .pillar-ico{
+    width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:13px;
+    background:rgba(31,181,122,.12);border:1px solid rgba(31,181,122,.28);color:var(--emerald-bright);
+  }
+  .pillar-ico svg{width:19px;height:19px}
+  .pillar h4{font-family:'Sora';font-weight:700;font-size:1.02rem;margin-bottom:6px}
+  .pillar p{color:var(--muted);font-size:.86rem;line-height:1.5}
+
+  /* ---------- ÁREAS (chips) ---------- */
+  .chips{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--surface);border:1px solid var(--border);
+    padding:9px 14px;border-radius:999px;font-size:.86rem;font-weight:500;color:#dbe6e1;
+    transition:.2s;
+  }
+  .chip:hover{border-color:var(--emerald);color:#fff}
+  .chip i{width:5px;height:5px;border-radius:50%;background:var(--gold);font-style:normal}
+
+  /* ---------- FORMAÇÃO (galeria) ---------- */
+  .grad-list{display:flex;flex-direction:column;gap:10px;margin-bottom:18px}
+  .grad-item{
+    display:flex;align-items:center;gap:13px;
+    background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:13px 15px;
+  }
+  .grad-item .gi-ico{flex:0 0 auto;color:var(--gold-bright)}
+  .grad-item .gi-ico svg{width:21px;height:21px}
+  .grad-item .gi-t{font-family:'Sora';font-weight:600;font-size:.92rem}
+  .grad-item .gi-s{font-size:.78rem;color:var(--muted)}
+
+  .gallery{
+    display:flex;gap:12px;overflow-x:auto;padding:4px 2px 14px;
+    scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;
+  }
+  .gallery::-webkit-scrollbar{height:6px}
+  .gallery::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:99px}
+  .gcard{
+    flex:0 0 158px;scroll-snap-align:start;position:relative;
+    border-radius:var(--radius-sm);overflow:hidden;aspect-ratio:3/4;
+    border:1px solid var(--border);background:#0c1310;
+  }
+  .gcard img{width:100%;height:100%;object-fit:cover}
+  .gcard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 45%,rgba(7,11,9,.92))}
+  .gcard span{
+    position:absolute;left:11px;right:11px;bottom:11px;z-index:2;
+    font-size:.74rem;font-weight:600;line-height:1.3;color:#eef5f1;
+  }
+
+  /* ---------- CONTATO ---------- */
+  .contact{
+    background:linear-gradient(165deg,#13201a,#0c1411);
+    border:1px solid var(--border);border-radius:var(--radius);
+    padding:26px 22px;text-align:center;
+  }
+  .contact h2{font-family:'Sora';font-weight:700;font-size:1.45rem;letter-spacing:-.3px}
+  .contact p{color:var(--muted);font-size:.94rem;margin:8px auto 20px;max-width:34ch}
+  .contact .btn-primary{width:100%;font-size:1.02rem;padding:16px}
+  .contact-alt{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px;color:var(--muted);font-size:.86rem}
+  .contact-alt a{color:var(--emerald-bright);font-weight:600}
+
+  /* ---------- FOOTER ---------- */
+  footer{margin-top:40px;text-align:center;color:var(--muted-2)}
+  footer .fname{font-family:'Sora';font-weight:600;color:var(--muted);font-size:.9rem}
+  footer .fcrm{font-size:.76rem;letter-spacing:.5px;margin-top:3px}
+  footer .fdisc{font-size:.72rem;margin-top:14px;line-height:1.5;max-width:40ch;margin-left:auto;margin-right:auto;opacity:.8}
+  footer .fcopy{font-size:.7rem;margin-top:12px;opacity:.7}
+
+  /* ---------- REVEAL (degrada se JS off) ---------- */
+  .js .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1), transform .7s cubic-bezier(.2,.7,.2,1)}
+  .js .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.js .reveal{opacity:1!important;transform:none!important;transition:none}}
+</style>
+</head>
+<body>
+<main class="shell">
+
+  <!-- ======================= TOPO ======================= -->
+  <header class="topbar reveal">
+    <div class="brand">
+      <img class="brand-badge" src="img/dr-wagner-portrait-main.jpg" alt="Dr. Wagner Novaes Jr." />
+      <div class="brand-text">
+        <div class="brand-name">Dr. Wagner Novaes Jr.</div>
+        <div class="brand-crm">CRM 1-27-554-2 RJ</div>
+      </div>
+    </div>
+    <a class="ig-chip" href="https://instagram.com/dr.wagnernovaesjr" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Seguir
+    </a>
+  </header>
+
+  <!-- ======================= HERO ======================= -->
+  <section class="hero reveal">
+    <img src="img/dr-wagner-auditorium-cropped.jpg" alt="Dr. Wagner Novaes Jr." />
+    <div class="hero-top">
+      <span class="pill-verified">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1l2.6 1.9 3.2-.3 1 3 2.7 1.7-1 3 1 3-2.7 1.7-1 3-3.2-.3L12 23l-2.6-1.9-3.2.3-1-3L2.5 14.7l1-3-1-3 2.7-1.7 1-3 3.2.3z"/><path d="M8 12l2.5 2.5L16 9" fill="none" stroke="#13201a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Médico • Psiquiatria & Nutrologia
+      </span>
+    </div>
+    <div class="hero-body">
+      <span class="eyebrow">Medicina Integrativa</span>
+      <h1>Dr. Wagner<br>Novaes Jr.</h1>
+      <p class="tagline">Saúde <b>mental</b> e <b>metabólica</b> em um só plano.</p>
+    </div>
+  </section>
+
+  <!-- ======================= INTRO ======================= -->
+  <p class="intro reveal">
+    Não trato só o sintoma — trato a <b>causa raiz</b>: tireoide, adrenais, hormônios e intestino.
+    Aqui você encontra meus <b>protocolos práticos</b> e pode agendar sua consulta.
+  </p>
+  <div class="quickrow reveal">
+    <a class="btn btn-primary" href="https://wa.me/5524999893059?text=Ol%C3%A1%20Dr.%20Wagner%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.7-6.16A11.87 11.87 0 0 1 .15 11.9C.15 5.35 5.5.02 12.06.02a11.8 11.8 0 0 1 8.4 3.48 11.74 11.74 0 0 1 3.48 8.4c0 6.55-5.35 11.88-11.9 11.88a12 12 0 0 1-5.7-1.45L.06 24zM6.6 20.2l.36.22a9.86 9.86 0 0 0 5.02 1.38h.01c5.45 0 9.88-4.43 9.88-9.88a9.8 9.8 0 0 0-2.9-6.99 9.74 9.74 0 0 0-6.98-2.9c-5.45 0-9.88 4.43-9.88 9.88 0 1.86.52 3.68 1.5 5.25l.24.38-1 3.65 3.75-.99zm11.4-5.4c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5l-.56-.01c-.2 0-.5.07-.77.37-.27.3-1.02 1-1.02 2.43 0 1.44 1.04 2.82 1.19 3.02.15.2 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42z"/></svg>
+      Agendar consulta
+    </a>
+    <a class="btn btn-ghost" href="https://instagram.com/dr.wagnernovaesjr" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+    </a>
+  </div>
+
+  <!-- ======================= PROTOCOLOS ======================= -->
+  <section class="section" id="protocolos">
+    <div class="section-head reveal">
+      <span class="section-kicker">Protocolos</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="protocols">
+
+      <!-- DESTAQUE: JEJUM INTERMITENTE (no ar) -->
+      <article class="protocol reveal">
+        <div class="protocol-inner">
+          <div class="protocol-flag"><span class="dot"></span> Disponível agora</div>
+          <h3>Jejum Intermitente</h3>
+          <p><b>Protocolo guiado + aplicativo</b> pra emagrecer com método, sem achismo. Janelas de jejum, cardápio e acompanhamento na palma da mão.</p>
+          <div class="tags">
+            <span class="tag">App incluso</span>
+            <span class="tag">Passo a passo</span>
+            <span class="tag">Acompanhamento</span>
+          </div>
+          <div class="price"><span class="price-now">12x R$ 25,40</span><span class="price-cash">ou R$ 247 à vista</span></div>
+          <a class="btn btn-primary" data-link="jejum-checkout" href="https://payfast.greenn.com.br/w5avfd4" target="_blank" rel="noopener">
+            Garantir meu protocolo
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn-text" data-link="jejum-app" href="https://jejum-app-pwa.vercel.app" target="_blank" rel="noopener">Já é aluno? Entrar no app →</a>
+        </div>
+      </article>
+
+      <!-- ============================================================
+           TEMPLATE PROTOCOLO  (oculto)
+           Pra lançar um novo protocolo: copie o bloco abaixo pra cima
+           (pra fora do comentário), troque NOME / TEXTO / LINK.
+           Para "em breve" use a versão .soon. Para vender, use a versão
+           do Jejum acima (com .btn-primary e o link de checkout).
+
+      <article class="protocol soon reveal">
+        <span class="badge-soon">Em breve</span>
+        <div class="protocol-inner">
+          <div class="protocol-flag">Próximo lançamento</div>
+          <h3>Desparasitação</h3>
+          <p>Protocolo + app pra limpar o organismo com segurança.</p>
+        </div>
+      </article>
+
+      Outros já planejados: Detox · Aumenta Libido · Mulher Fértil
+           ============================================================ -->
+
+    </div>
+  </section>
+
+  <!-- ======================= MÉTODO ======================= -->
+  <section class="section">
+    <div class="section-head reveal">
+      <span class="section-kicker">O método</span>
+      <span class="section-line"></span>
+    </div>
+    <h2 class="reveal">Trato a causa, não o sintoma.</h2>
+    <p class="sub reveal" style="margin-bottom:20px">Muito “diagnóstico de depressão” é, na verdade, um problema metabólico. Antidepressivo não corrige hormônio. Eu investigo o terreno biológico inteiro.</p>
+    <div class="pillars">
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l2 5 4-14 2 9h6"/></svg></div>
+        <h4>Metabolismo & Mente</h4>
+        <p>Resistência insulínica e inflamação afetam direto o cérebro. Trato os dois na mesma plataforma.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a4 4 0 0 0-4 4c0 1.5.8 2.4 1.5 3.2C6 10 4 12.5 4 15a8 8 0 0 0 16 0c0-2.5-2-5-5.5-5.8C15.2 8.4 16 7.5 16 6a4 4 0 0 0-4-4z"/></svg></div>
+        <h4>Tireoide & Adrenais</h4>
+        <p>Fadiga adrenal e hipotireoidismo não tratados se disfarçam de depressão. A gente investiga.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M5 19l2-2M17 7l2-2"/></svg></div>
+        <h4>Hormônios</h4>
+        <p>Queda de progesterona ou testosterona pode ser a raiz da ansiedade e do desânimo.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pillar-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c-3 0-5 2-5 5 0 4 5 5 5 9M12 3c3 0 5 2 5 5 0 4-5 5-5 9"/><circle cx="12" cy="20" r="1.5"/></svg></div>
+        <h4>Disbiose Intestinal</h4>
+        <p>O intestino é o segundo cérebro. Restaurar a flora restaura seus neurotransmissores.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= ÁREAS ======================= -->
+  <section class="section">
+    <div class="section-head reveal">
+      <span class="section-kicker">Áreas de atuação</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="chips reveal">
+      <span class="chip"><i></i>Emagrecimento Metabólico</span>
+      <span class="chip"><i></i>Ansiedade & Depressão</span>
+      <span class="chip"><i></i>Autismo & Neurodesenvolvimento</span>
+      <span class="chip"><i></i>Reposição Hormonal</span>
+      <span class="chip"><i></i>Saúde Intestinal (Disbiose)</span>
+      <span class="chip"><i></i>Performance Mental</span>
+    </div>
+  </section>
+
+  <!-- ======================= FORMAÇÃO ======================= -->
+  <section class="section">
+    <div class="section-head reveal">
+      <span class="section-kicker">Formação & atualização</span>
+      <span class="section-line"></span>
+    </div>
+    <div class="grad-list">
+      <div class="grad-item reveal">
+        <span class="gi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></span>
+        <div><div class="gi-t">Pós-graduação em Psiquiatria & Nutrologia</div><div class="gi-s">UniBF</div></div>
+      </div>
+      <div class="grad-item reveal">
+        <span class="gi-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.7 2.5 6 2.5s6-1.5 6-2.5v-5"/></svg></span>
+        <div><div class="gi-t">Pós em Adequação Nutricional</div><div class="gi-s">Coordenação Dr. Lair Ribeiro</div></div>
+      </div>
+    </div>
+    <div class="gallery">
+      <figure class="gcard reveal"><img src="img/dr-wagner-cbp-2025.jpg" alt="Congresso Brasileiro de Psiquiatria 2025" /><span>Congresso Brasileiro de Psiquiatria · 2025</span></figure>
+      <figure class="gcard reveal"><img src="img/dr-wagner-abeso.jpg" alt="Congresso ABESO 2025" /><span>Congresso ABESO · Obesidade & Metabolismo</span></figure>
+      <figure class="gcard reveal"><img src="img/dr-wagner-integrativa-funcional-new.jpg" alt="Medicina Funcional Integrativa" /><span>Medicina Funcional Integrativa</span></figure>
+      <figure class="gcard reveal"><img src="img/dr-wagner-lair-ribeiro.jpg" alt="Pós-graduação Dr. Lair Ribeiro" /><span>Pós-graduação · Dr. Lair Ribeiro</span></figure>
+      <figure class="gcard reveal"><img src="img/dr-wagner-portrait-main.jpg" alt="No consultório" /><span>No consultório</span></figure>
+    </div>
+  </section>
+
+  <!-- ======================= CONTATO ======================= -->
+  <section class="section">
+    <div class="contact reveal">
+      <h2>Vamos cuidar de você?</h2>
+      <p>Atendimento presencial ou online. Agende sua consulta pelo WhatsApp.</p>
+      <a class="btn btn-primary" href="https://wa.me/5524999893059?text=Ol%C3%A1%20Dr.%20Wagner%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.06 24l1.7-6.16A11.87 11.87 0 0 1 .15 11.9C.15 5.35 5.5.02 12.06.02a11.8 11.8 0 0 1 8.4 3.48 11.74 11.74 0 0 1 3.48 8.4c0 6.55-5.35 11.88-11.9 11.88a12 12 0 0 1-5.7-1.45L.06 24zM6.6 20.2l.36.22a9.86 9.86 0 0 0 5.02 1.38h.01c5.45 0 9.88-4.43 9.88-9.88a9.8 9.8 0 0 0-2.9-6.99 9.74 9.74 0 0 0-6.98-2.9c-5.45 0-9.88 4.43-9.88 9.88 0 1.86.52 3.68 1.5 5.25l.24.38-1 3.65 3.75-.99zm11.4-5.4c-.07-.12-.27-.2-.56-.34-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15-.2.3-.76.96-.93 1.16-.17.2-.34.22-.64.07-.3-.15-1.25-.46-2.38-1.47-.88-.78-1.47-1.76-1.64-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.34.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.66-1.6-.9-2.18-.24-.58-.48-.5-.66-.5l-.56-.01c-.2 0-.5.07-.77.37-.27.3-1.02 1-1.02 2.43 0 1.44 1.04 2.82 1.19 3.02.15.2 2.05 3.13 4.97 4.39.69.3 1.23.48 1.65.61.7.22 1.33.19 1.83.12.56-.08 1.76-.72 2-1.42.25-.7.25-1.29.18-1.42z"/></svg>
+        WhatsApp · (24) 99989-3059
+      </a>
+      <div class="contact-alt">
+        <span>ou siga no Instagram</span>
+        <a href="https://instagram.com/dr.wagnernovaesjr" target="_blank" rel="noopener">@dr.wagnernovaesjr</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================= FOOTER ======================= -->
+  <footer class="reveal">
+    <div class="fname">Dr. Wagner Novaes Jr.</div>
+    <div class="fcrm">CRM 1-27-554-2 RJ · Psiquiatria & Nutrologia Integrativa</div>
+    <p class="fdisc">Este conteúdo tem caráter informativo e não substitui a consulta médica presencial.</p>
+    <div class="fcopy">© 2026 Dr. Wagner Novaes Jr. — Todos os direitos reservados.</div>
+  </footer>
+
+</main>
+
+<script>
+  // reveal on scroll (degrada: se isso não rodar, .js controla a visibilidade)
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in')}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    els.forEach(function(e,i){ e.style.transitionDelay = Math.min(i*40,180)+'ms'; io.observe(e); });
+  })();
+</script>
+</body>
+</html>
