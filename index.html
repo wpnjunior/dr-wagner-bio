@@ -75,6 +75,20 @@
   .cta .cta-sub{font-weight:600;font-size:.72rem;color:rgba(8,17,13,.62);letter-spacing:.02em}
   .cta:hover{transform:translateY(-2px);box-shadow:0 20px 40px -14px rgba(201,162,75,.7);filter:saturate(1.06)}
 
+  /* par de agendamento: WhatsApp (dourado) + Calendário (esmeralda) */
+  .agenda{display:flex;flex-direction:column;gap:11px}
+  .cta-cal{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    text-decoration:none;color:#E4F5EC;font-weight:700;font-size:1.0rem;
+    padding:16px 20px;border-radius:16px;
+    background:linear-gradient(135deg,rgba(47,184,132,.20),rgba(47,184,132,.09));
+    border:1px solid rgba(47,184,132,.42);
+    transition:transform .18s ease,border-color .18s ease,background .18s ease;
+  }
+  .cta-cal:hover{transform:translateY(-2px);border-color:var(--emerald);background:linear-gradient(135deg,rgba(47,184,132,.28),rgba(47,184,132,.13))}
+  .cta-cal .cal-ic{font-size:1.12rem}
+  .cta-cal .cta-sub{font-weight:600;font-size:.7rem;color:rgba(228,245,236,.55);letter-spacing:.02em}
+
   /* ---------- rótulo de seção ---------- */
   .label{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;font-weight:600;margin:2px 2px -6px}
   .label::after{content:"";flex:1;height:1px;background:var(--line-soft)}
@@ -133,10 +147,17 @@
     <p class="tagline">Medicina Funcional &amp; Longevidade — cuidado individualizado, da causa à prevenção.</p>
   </header>
 
-  <a class="cta anim d2" href="https://wa.me/5521997845125?text=Ol%C3%A1%20Dr.%20Wagner%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
-    <span>Agendar consulta</span>
-    <span class="cta-sub">WhatsApp · resposta rápida</span>
-  </a>
+  <div class="agenda anim d2">
+    <a class="cta" href="https://wa.me/5521997845125?text=Ol%C3%A1%20Dr.%20Wagner%2C%20gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+      <span>Agendar consulta</span>
+      <span class="cta-sub">WhatsApp · falar com a secretária</span>
+    </a>
+    <a class="cta-cal" href="https://secretaria-app-five.vercel.app" target="_blank" rel="noopener">
+      <span class="cal-ic">📅</span>
+      <span>Agendar direto no calendário</span>
+      <span class="cta-sub">escolha o horário na hora</span>
+    </a>
+  </div>
 
   <div class="label anim d3">Programas</div>
 
