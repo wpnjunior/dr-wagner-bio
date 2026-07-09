@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Central de Guias — Papo Médico</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2288%22>🩺</text></svg>">
+<style>
+ :root{--bg:#0a1016;--bg2:#060b10;--surf:#101a22;--line:rgba(99,216,203,.16);--teal:#63d8cb;--gold:#f0c45c;--ink:#eef3f0;--soft:#aeb9bd}
+ *{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#0c151b,#060b10);color:var(--ink);font:16px/1.5 -apple-system,Segoe UI,Roboto,sans-serif;min-height:100vh}
+ header{text-align:center;padding:44px 18px 8px}
+ .brand{font:700 30px/1 Georgia,serif;letter-spacing:.5px} .brand small{color:var(--teal)}
+ header h1{font-size:20px;margin:16px 0 4px;font-weight:700} header p{color:var(--soft);margin:0}
+ .grid{max-width:1080px;margin:26px auto 60px;padding:0 16px;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+ .card{background:var(--surf);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+ .thumb{aspect-ratio:16/9;background:#0a0f14} .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+ .body{padding:14px 16px 16px} .body h3{margin:0 0 4px;font-size:18px} .sub{color:var(--soft);font-size:13.5px;margin:0 0 10px;min-height:38px}
+ .word{font-size:13px;color:var(--soft);margin-bottom:12px} .word b{color:var(--gold);letter-spacing:.5px}
+ .acts{display:flex;gap:8px;margin-bottom:8px}
+ .btn{flex:1;text-align:center;padding:9px 10px;border-radius:10px;background:var(--teal);color:#04241f;font-weight:700;text-decoration:none;border:0;font-size:14px;cursor:pointer}
+ .btn.ghost{background:transparent;color:var(--teal);border:1px solid var(--teal)}
+ .slides{font-size:12.5px;color:var(--soft)} .mini{color:var(--teal);text-decoration:none;border:1px solid var(--line);padding:2px 8px;border-radius:7px;margin-left:4px}
+ footer{text-align:center;color:var(--soft);font-size:12.5px;padding:20px}
+ .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--gold);color:#241a04;padding:10px 18px;border-radius:10px;font-weight:700;opacity:0;transition:.2s;pointer-events:none}
+ .toast.on{opacity:1}
+</style></head><body>
+<header>
+ <div class="brand">Papo Médico <small>/\/</small></div>
+ <h1>Central de Guias · Presentes do ManyChat</h1>
+ <p>Cada tema tem a palavra que o seguidor comenta, o PDF da receita e os slides (16:9 e 9:16).</p>
+</header>
+<main class="grid">
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_kefir_16x9.png" alt="Kefir Caseiro" loading="lazy"></div>
+    <div class="body">
+      <h3>Kefir Caseiro</h3>
+      <p class="sub">Probiótico caseiro: leite, água e coco</p>
+      <div class="word">Palavra no ManyChat: <b>RECEITA</b></div>
+      <div class="acts">
+        <a class="btn" href="kefir.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/kefir.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_kefir_16x9.png" download>16:9</a> </div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_bulletproof_16x9.png" alt="Café Bulletproof" loading="lazy"></div>
+    <div class="body">
+      <h3>Café Bulletproof</h3>
+      <p class="sub">Café com gordura para energia e jejum</p>
+      <div class="word">Palavra no ManyChat: <b>LONGEVIDADE</b></div>
+      <div class="acts">
+        <a class="btn" href="bulletproof.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/bulletproof.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_bulletproof_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_bulletproof_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_glicemia_16x9.png" alt="O Shot de Vinagre" loading="lazy"></div>
+    <div class="body">
+      <h3>O Shot de Vinagre</h3>
+      <p class="sub">O truque simples que segura o pico de açúcar</p>
+      <div class="word">Palavra no ManyChat: <b>GLICEMIA</b></div>
+      <div class="acts">
+        <a class="btn" href="glicemia.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/glicemia.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_glicemia_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_glicemia_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_jejum_16x9.png" alt="Eletrólitos do Jejum" loading="lazy"></div>
+    <div class="body">
+      <h3>Eletrólitos do Jejum</h3>
+      <p class="sub">O que beber pra não sentir fraqueza e dor de cabeça</p>
+      <div class="word">Palavra no ManyChat: <b>JEJUM</b></div>
+      <div class="acts">
+        <a class="btn" href="jejum.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/jejum.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_jejum_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_jejum_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_shot_16x9.png" alt="O Shot da Manhã" loading="lazy"></div>
+    <div class="body">
+      <h3>O Shot da Manhã</h3>
+      <p class="sub">Cúrcuma e gengibre: o que é real e o que é hype</p>
+      <div class="word">Palavra no ManyChat: <b>SHOT</b></div>
+      <div class="acts">
+        <a class="btn" href="shot.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/shot.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_shot_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_shot_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_cafe_16x9.png" alt="Overnight Oats" loading="lazy"></div>
+    <div class="body">
+      <h3>Overnight Oats</h3>
+      <p class="sub">O café da manhã que segura a fome até o almoço</p>
+      <div class="word">Palavra no ManyChat: <b>CAFE</b></div>
+      <div class="acts">
+        <a class="btn" href="cafe.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/cafe.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_cafe_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_cafe_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_fermentado_16x9.png" alt="Chucrute Caseiro" loading="lazy"></div>
+    <div class="body">
+      <h3>Chucrute Caseiro</h3>
+      <p class="sub">A comida viva que o seu intestino pede</p>
+      <div class="word">Palavra no ManyChat: <b>FERMENTADO</b></div>
+      <div class="acts">
+        <a class="btn" href="fermentado.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/fermentado.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_fermentado_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_fermentado_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_caldo_16x9.png" alt="Caldo de Osso" loading="lazy"></div>
+    <div class="body">
+      <h3>Caldo de Osso</h3>
+      <p class="sub">Colágeno de verdade é na panela, não na cápsula</p>
+      <div class="word">Palavra no ManyChat: <b>CALDO</b></div>
+      <div class="acts">
+        <a class="btn" href="caldo.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/caldo.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_caldo_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_caldo_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_fibra_16x9.png" alt="Pudim de Chia" loading="lazy"></div>
+    <div class="body">
+      <h3>Pudim de Chia</h3>
+      <p class="sub">O café da manhã que regula o intestino</p>
+      <div class="word">Palavra no ManyChat: <b>FIBRA</b></div>
+      <div class="acts">
+        <a class="btn" href="fibra.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/fibra.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_fibra_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_fibra_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_sono_16x9.png" alt="O Chá do Sono" loading="lazy"></div>
+    <div class="body">
+      <h3>O Chá do Sono</h3>
+      <p class="sub">Dormir é o antienvelhecimento que ninguém te vende</p>
+      <div class="word">Palavra no ManyChat: <b>SONO</b></div>
+      <div class="acts">
+        <a class="btn" href="sono.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/sono.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_sono_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_sono_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_probiotico_16x9.png" alt="Iogurte Caseiro" loading="lazy"></div>
+    <div class="body">
+      <h3>Iogurte Caseiro</h3>
+      <p class="sub">O de verdade vs o de prateleira cheio de açúcar</p>
+      <div class="word">Palavra no ManyChat: <b>PROBIOTICO</b></div>
+      <div class="acts">
+        <a class="btn" href="probiotico.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/probiotico.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_probiotico_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_probiotico_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+  <article class="card">
+    <div class="thumb"><img src="guias-assets/card_doce_16x9.png" alt="O Doce que Pode" loading="lazy"></div>
+    <div class="body">
+      <h3>O Doce que Pode</h3>
+      <p class="sub">Matar a vontade sem estourar a glicemia</p>
+      <div class="word">Palavra no ManyChat: <b>DOCE</b></div>
+      <div class="acts">
+        <a class="btn" href="doce.pdf" target="_blank">Abrir PDF</a>
+        <button class="btn ghost" onclick="cp('https://drwagnernovaesjr.com.br/doce.pdf',this)">Copiar link</button>
+      </div>
+      <div class="slides">Slides: <a class="mini" href="guias-assets/card_doce_16x9.png" download>16:9</a> <a class="mini" href="guias-assets/card_doce_9x16.png" download>9:16</a></div>
+    </div>
+  </article>
+</main>
+<footer>Dr. Wagner Novaes — Medicina Funcional e Longevidade · uso interno</footer>
+<div class="toast" id="t">Link copiado!</div>
+<script>
+ function cp(u,el){navigator.clipboard.writeText(u).then(()=>{var t=document.getElementById('t');t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1400)})}
+</script>
+</body></html>
