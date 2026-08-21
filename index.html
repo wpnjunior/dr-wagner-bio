@@ -130,6 +130,20 @@
   .d5{animation-delay:.45s}.d6{animation-delay:.55s}.d7{animation-delay:.65s}.d8{animation-delay:.75s}
   @keyframes up{to{opacity:1;transform:none}}
   @media(prefers-reduced-motion:reduce){.anim{animation:none;opacity:1;transform:none}}
+  /* programas (produtos com link de compra) */
+  .prods{display:grid;gap:11px}
+  @media(min-width:560px){.prods{grid-template-columns:1fr 1fr}}
+  .prod{
+    display:flex;flex-direction:column;gap:5px;padding:15px 16px;border-radius:16px;
+    background:linear-gradient(135deg,rgba(47,184,132,.10),rgba(201,162,75,.06));
+    border:1px solid var(--line);text-decoration:none;color:inherit;transition:.18s;
+  }
+  .prod:hover{transform:translateY(-2px);border-color:var(--emerald);background:linear-gradient(135deg,rgba(47,184,132,.20),rgba(201,162,75,.10))}
+  .prod .p-ic{font-size:1.3rem;line-height:1}
+  .prod .p-nome{font-family:var(--display);font-size:1.02rem;font-weight:600;color:var(--text);letter-spacing:.01em}
+  .prod .p-desc{font-size:.79rem;color:var(--soft);line-height:1.5}
+  .prod .p-cta{margin-top:4px;font-size:.72rem;font-weight:700;letter-spacing:.04em;color:var(--emerald)}
+  .prod .p-cta::after{content:" →"}
 </style>
 </head>
 <body>
@@ -165,6 +179,24 @@
   <section class="anim d4">
     <div class="label">Áreas de atuação</div>
     <img class="areas-img" src="img/areas-corpo.webp" alt="Áreas de atuação do Dr. Wagner sobre a anatomia humana (órgãos, vasos e nervos): emagrecimento, ansiedade e depressão, autismo e neurodesenvolvimento, reposição hormonal, saúde intestinal, tireoide, fadiga adrenal, performance mental, longevidade e anti-idade" loading="lazy">
+  </section>
+
+  <section class="anim d5">
+    <div class="label">Programas com acompanhamento</div>
+    <div class="prods">
+      <a class="prod" href="https://jejum-dr-wagner.vercel.app?utm_source=bio&amp;utm_medium=folder" target="_blank" rel="noopener">
+        <span class="p-ic">⏳</span>
+        <span class="p-nome">Jejum sob Acompanhamento</span>
+        <span class="p-desc">Protocolo de jejum intermitente conduzido por mim, com curso, aplicativo e acompanhamento por 60 dias.</span>
+        <span class="p-cta">Conhecer e começar</span>
+      </a>
+      <a class="prod" href="https://desparasitacao-dr-wagner.vercel.app?utm_source=bio&amp;utm_medium=folder" target="_blank" rel="noopener">
+        <span class="p-ic">🦠</span>
+        <span class="p-nome">Desparasitação + Candida</span>
+        <span class="p-desc">Programa de 30 dias em 3 fases — preparar, desparasitar e reparar o intestino — com app e acompanhamento.</span>
+        <span class="p-cta">Conhecer e começar</span>
+      </a>
+    </div>
   </section>
 
   <section class="anim d5">
